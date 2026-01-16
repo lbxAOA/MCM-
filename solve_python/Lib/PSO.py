@@ -1,10 +1,3 @@
-% 本资料由公众号“数学建模老哥”原创免费发布！
-
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-
-
 def fit_fun(x):  # 适应函数
     return sum(100.0 * (x[0][1:] - x[0][:-1] ** 2.0) ** 2.0 + (1 - x[0][:-1]) ** 2.0)
 
@@ -104,12 +97,3 @@ class PSO:
                 break
 
         return self.fitness_val_list, self.get_bestPosition()
-
-if __name__ == '__main__':
-    # test 香蕉函数
-    pso = PSO(4, 5, 10000, 30, 60, 1e-4, C1=2, C2=2, W=1)
-    fit_var_list, best_pos = pso.update_ndim()
-    print("最优位置:" + str(best_pos))
-    print("最优解:" + str(fit_var_list[-1]))
-    plt.plot(range(len(fit_var_list)), fit_var_list, alpha=0.5)
-
